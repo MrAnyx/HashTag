@@ -1,0 +1,22 @@
+{
+  "name": "hashtag",
+  "version": "1.0.0",
+  "description": "application that hash, verify a hash ...",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . HashTag --asar --plateform=win32 --icon=src/icon.ico"
+  },
+  "keywords": [
+    "Electron",
+    "Javascript",
+    "Hash",
+    "Security"
+  ],
+  "author": "Robin Bidanchon",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.0.0",
+    "electron-packager": "^14.1.0"
+  }
+}
