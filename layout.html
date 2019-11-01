@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HashTag</title>
+
+	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+	
+
+	<script src="./node_modules/popper.js/dist/popper.js"></script>
+	<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	
+	<script src="https://kit.fontawesome.com/7796a3bf49.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<div class="main">
+		
+		<div class="sidebar text-white">
+
+			<div class="logo text-dark mb-3">
+				<div>
+					<img src="src/icon.png" alt="app logo">
+				</div>
+				<h5>HashTag</h5>
+			</div>
+
+
+			<div class="p-2 font-weight-bold menu">
+				<div class="dropdown-menu" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+					MD<i class="fas fa-caret-down"></i>
+				</div>
+				<div class="collapse text-dark" id="collapseExample">
+					<hr>
+					<p class="pl-3 my-2">MD1</p>
+					<p class="pl-3 my-2">MD2</p>
+					<p class="pl-3 my-2">MD3</p>
+					<p class="pl-3 my-2">MD4</p>
+					<p class="pl-3 my-2">MD5</p>
+				</div>
+			</div>
+
+			
+
+			<div class="p-2 font-weight-bold menu">
+				SHA<i class="fas fa-caret-down"></i>
+			</div>
+
+			<div class="p-2 font-weight-bold menu">
+				Bcrypt
+			</div>
+
+
+		</div>
+
+		<div class="content" id="content">
+			<!-- main content. We inject html with ajax here. this is like the root div in react -->
+			
+		</div>
+
+
+
+	</div>
+
+
+	<script>
+
+		window.$ = window.jQuery = require('jquery');
+		require('bootstrap');
+    	require('popper.js');
+
+		$(document).ready(function(){
+			$("#button").click(function(){
+				$.ajax({
+					url: "test.html",
+					context: document.body,
+					success: function(response){
+						$('#content').html(response);
+					}
+				});
+			});
+		});
+
+
+	</script>
+
+</body>
+</html>

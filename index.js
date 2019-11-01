@@ -1,36 +1,35 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain, Menu } = require('electron')
 const path = require('path')
+const bcrypt = require("bcryptjs")
+
 
 let win
 
-function createWindow () {
-  win = new BrowserWindow({
-    width: 900,
-    height: 600,
-    resizable: false,
-    center: true,
-    icon: path.join(__dirname, './src/icon.png'),
-    webPreferences: { nodeIntegration: true }
-  })
 
-  win.loadFile('index.html')
+app.on('ready', () => {
 
+	win = new BrowserWindow({
+		width: 600,
+		height: 400,
+		resizable: false,
+		center: true,
+		icon: path.join(__dirname, './src/icon.png'),
+		webPreferences: { nodeIntegration: true },
+		show: false
+	})
 
-  win.on('closed', () => {
-    win = null
-  })
-}
+	win.loadFile('layout.html')
 
-app.on('ready', createWindow)
+	win.on("ready-to-show", () => { win.show() })
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+	win.on('closed', () => {
+		win = null
+	})
+
 })
 
-app.on('activate', () => {
-  if (win === null) {
-    createWindow()
-  }
+app.on('window-all-closed', () => {
+	if (process.platform !== 'darwin') {
+		app.quit()
+	}
 })

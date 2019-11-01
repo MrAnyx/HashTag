@@ -1,0 +1,25 @@
+
+
+<p>dsg fqhgsjd fkjhqgs dkfjhgqd skjfhgq ksdjfg sd</p>
+<p>dhgf kqhjg dskfjhqg sdkjfgq dskfqgdskf q</p>
+<p>jhdgsf kqjhgsd fkjhqg sdkfjhgq kdsjhfg qksjfdg </p>
+
+<button class="btn btn-primary" id="button2">click2</button>
+
+<script>
+	
+	$(document).ready(function(){	
+		$("#button2").click(function(){
+			$.ajax({
+				url: "test2.html",
+				context: document.body,
+				success: function(response){
+					$('#content').html(response);
+				}
+			});
+		});
+	});
+</script>
+
+
+
