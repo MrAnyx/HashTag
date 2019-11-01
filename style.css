@@ -47,6 +47,7 @@
 
 hr {
 	background-color: rgb(229, 139, 4);
+	
 }
 .content{
 	margin-left: 175px;
@@ -61,11 +62,8 @@ hr {
 	color: #343a40;
 }
 
-.menu:hover{
+.main-link:hover{
 	color: #222;
-}
-
-.dropdown-menu:hover{
 	cursor: pointer;
 }
 

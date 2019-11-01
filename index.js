@@ -18,7 +18,7 @@ app.on('ready', () => {
 		show: false
 	})
 
-	win.loadFile('layout.html')
+	win.loadFile('templates/layout.html')
 
 	win.on("ready-to-show", () => { win.show() })
 
