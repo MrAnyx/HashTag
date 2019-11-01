@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<title>HashTag</title>
 
-	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 	
 
-	<script src="./node_modules/popper.js/dist/popper.js"></script>
-	<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="../node_modules/popper.js/dist/popper.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	
 	<script src="https://kit.fontawesome.com/7796a3bf49.js" crossorigin="anonymous"></script>
 
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 	
@@ -22,7 +22,7 @@
 
 			<div class="logo text-dark mb-3">
 				<div>
-					<img src="src/icon.png" alt="app logo">
+					<img src="../src/icon.png" alt="app logo">
 				</div>
 				<h5>HashTag</h5>
 			</div>
@@ -35,11 +35,11 @@
 				
 				<div class="collapse text-dark" id="MDExample">
 					<hr class="mt-2">
-					<p><a class="pl-3" id="md1">MD1</a></p>
-					<p><a class="pl-3" id="md2">MD2</a></p>
-					<p><a class="pl-3" id="md3">MD3</a></p>
-					<p><a class="pl-3" id="md4">MD4</a></p>
-					<p><a class="pl-3" id="md5">MD5</a></p>
+					<p><a class="pl-3 link" id="md1">MD1</a></p>
+					<p><a class="pl-3 link" id="md2">MD2</a></p>
+					<p><a class="pl-3 link" id="md3">MD3</a></p>
+					<p><a class="pl-3 link" id="md4">MD4</a></p>
+					<p><a class="pl-3 link" id="md5">MD5</a></p>
 				</div>
 			</div>
 
@@ -52,9 +52,9 @@
 				
 				<div class="collapse text-dark" id="SHAExample">
 					<hr class="mt-2">
-					<p><a class="pl-3" id="sha0">SHA-0</a></p>
-					<p><a class="pl-3" id="sha1">SHA-1</a></p>
-					<p><a class="pl-3" id="sha2">SHA-256</a></p>
+					<p><a class="pl-3 link" id="sha0">SHA-0</a></p>
+					<p><a class="pl-3 link" id="sha1">SHA-1</a></p>
+					<p><a class="pl-3 link" id="sha2">SHA-256</a></p>
 				</div>
 			</div>
 
@@ -65,7 +65,7 @@
 
 		</div>
 
-		<div class="content" id="content">
+		<div class="content pr-3" id="content">
 			<!-- main content. We inject html with ajax here. this is like the root div in react -->
 			
 		</div>
@@ -81,10 +81,11 @@
 		require('bootstrap');
     	require('popper.js');
 
+
 		$(document).ready(function(){
-			$("#button").click(function(){
+			$("#md5").click(function(){
 				$.ajax({
-					url: "test.html",
+					url: "md5.html",
 					context: document.body,
 					success: function(response){
 						$('#content').html(response);
@@ -92,6 +93,9 @@
 				});
 			});
 		});
+
+
+
 
 
 	</script>

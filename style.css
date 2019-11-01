@@ -62,7 +62,7 @@ hr {
 	color: #343a40;
 }
 
-.main-link:hover{
+.main-link:hover, .link:hover{
 	color: #222;
 	cursor: pointer;
 }
