@@ -6,11 +6,11 @@
 
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<script src="../node_modules/popper.js/dist/popper.js"></script>
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	
-	<script src="https://kit.fontawesome.com/7796a3bf49.js" crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="../style.css">
 </head>
@@ -21,46 +21,43 @@
 		<div class="sidebar text-white">
 
 			<div class="logo text-dark mb-3">
-				<div>
-					<img src="../src/icon.png" alt="app logo">
-				</div>
-				<h5>HashTag</h5>
+				<a href="#" id="main-page-link">
+					<div>
+						<img src="../src/icon.png" alt="app logo">
+					</div>
+					<h5>HashTag</h5>
+				</a>
 			</div>
 
 
 			<div class="p-2 font-weight-bold menu" >
-				<div class="main-link" data-toggle="collapse" href="#MDExample" role="button" aria-expanded="false" aria-controls="MDExample">
-					MD<i class="fas fa-caret-down"></i>
+				<div class="main-link" id="collapse-hash" data-toggle="collapse" href="#hashcollapse" role="button" aria-expanded="false" aria-controls="hashcollapse">
+					Hash<i class="material-icons" id="hash-icon">keyboard_arrow_down</i>
 				</div>
 				
-				<div class="collapse text-dark" id="MDExample">
+				<div class="collapse text-dark" id="hashcollapse">
 					<hr class="mt-2">
-					<p><a class="pl-3 link" id="md1">MD1</a></p>
-					<p><a class="pl-3 link" id="md2">MD2</a></p>
-					<p><a class="pl-3 link" id="md3">MD3</a></p>
-					<p><a class="pl-3 link" id="md4">MD4</a></p>
 					<p><a class="pl-3 link" id="md5">MD5</a></p>
+					<p><a class="pl-3 link" id="bcrypt">Bcrypt</a></p>
+					<a class="pl-3 link" id="sha256">SHA-256</a>
 				</div>
 			</div>
 
 			
 
-			<div class="p-2 font-weight-bold menu" >
-				<div class="main-link" data-toggle="collapse" href="#SHAExample" role="button" aria-expanded="false" aria-controls="SHAExample">
-					SHA<i class="fas fa-caret-down"></i>
+			<div class="p-2 font-weight-bold menu wip">
+				<div class="main-link" id="collapse-crypt" data-toggle="collapse" href="#cryptcollapse" role="button" aria-expanded="false" aria-controls="cryptcollapse">
+					Crypt<i class="material-icons" id="crypt-icon">keyboard_arrow_down</i>
 				</div>
 				
-				<div class="collapse text-dark" id="SHAExample">
+				<!-- <div class="collapse text-dark" id="cryptcollapse">
 					<hr class="mt-2">
-					<p><a class="pl-3 link" id="sha0">SHA-0</a></p>
-					<p><a class="pl-3 link" id="sha1">SHA-1</a></p>
-					<p><a class="pl-3 link" id="sha2">SHA-256</a></p>
-				</div>
+					<p><a class="pl-3 link" id="aes">AES</a></p>
+					<a class="pl-3 link" id="aes">RSA</a>
+				</div> -->
 			</div>
 
-			<div class="p-2 font-weight-bold menu" id="bcrypt">
-				Bcrypt
-			</div>
+			
 
 
 		</div>
@@ -83,6 +80,15 @@
 
 
 		$(document).ready(function(){
+
+			$.ajax({
+				url: "main.html",
+				context: document.body,
+				success: function(response){
+					$('#content').html(response);
+				}
+			});
+			
 			$("#md5").click(function(){
 				$.ajax({
 					url: "md5.html",
@@ -92,7 +98,58 @@
 					}
 				});
 			});
+
+			$("#sha256").click(function(){
+				$.ajax({
+					url: "sha256.html",
+					context: document.body,
+					success: function(response){
+						$('#content').html(response);
+					}
+				});
+			});
+
+			$("#bcrypt").click(function(){
+				$.ajax({
+					url: "bcrypt.html",
+					context: document.body,
+					success: function(response){
+						$('#content').html(response);
+					}
+				});
+			});
+
+			$("#main-page-link").click(function(){
+				$.ajax({
+					url: "main.html",
+					context: document.body,
+					success: function(response){
+						$('#content').html(response);
+					}
+				});
+			});
 		});
+
+
+		document.getElementById("collapse-hash").addEventListener("click", () => {
+			let x = document.getElementById("hash-icon");
+			if (x.innerHTML === "keyboard_arrow_down") {
+				x.innerHTML = "keyboard_arrow_up";
+			} else {
+				x.innerHTML = "keyboard_arrow_down";
+			}
+				
+			
+		})
+
+		/*document.getElementById("collapse-crypt").addEventListener("click", () => {
+			let x = document.getElementById("crypt-icon");
+			if (x.innerHTML === "keyboard_arrow_down") {
+				x.innerHTML = "keyboard_arrow_up";
+			} else {
+				x.innerHTML = "keyboard_arrow_down";
+			}
+		})*/
 
 
 

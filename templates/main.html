@@ -1,0 +1,96 @@
+<div style="position: relative" class="mt-2">
+	<div class="row justify-content-center">
+		<div style="width: 100vh; height: 100vh; object-fit: cover; position: fixed">
+			<img src="../src/main.png" style="width: 100%; height: 100%; opacity: .1; filter:grayscale(100%);">
+		</div>
+	</div>
+
+	<div style="position: absolute; width: 100%;">
+		<h1 class="text-center">HashTag</h1>
+
+		<div class="article" style="font-size: 14px">
+			<p class="text-justify">HashTag is an electron that allows you to encrypt multiple things. <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Learn more</a></p>
+			<div class="collapse" id="collapseExample">
+				<p class="text-justify">You can encrypt those things using hash methods or encryption methods.</p>
+				<p class="text-justify">Last but not least, HashTag doesn't share your input, it just convert your input into whatever you want. We just provide an historic service for our users in order to improve your productivity.</p>
+				<p class="text-justify">Finally, we would like to thank you for using our service.</p>
+			</div>
+		</div>
+
+
+
+		<div class="accordion mt-3" id="accordion">
+			<div class="card rounded">
+				<button class="btn collapsed m-0 p-0 rounded" id="historic-button" type="button" data-toggle="collapse" data-target="#historic-collapse" aria-expanded="false" aria-controls="historic-collapse">
+					<div class="card-header p-0 accordion-button rounded" id="historic">
+						<h6 class="m-0 p-3 text-left">Historic<i class="material-icons mt-2 mr-2" id="icon-historic">keyboard_arrow_down</i></h6>
+					</div>
+				</button>
+				<div id="historic-collapse" class="collapse" aria-labelledby="historic-collapse" data-parent="#accordion">
+					<div class="card-body">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					</div>
+				</div>
+			</div>
+
+			<div class="card rounded mt-2">
+				<button class="btn collapsed m-0 p-0 rounded" id="most-used-button" type="button" data-toggle="collapse" data-target="#most-used-collapse" aria-expanded="false" aria-controls="most-used-collapse">
+					<div class="card-header p-0 accordion-button rounded" id="most-used">
+						<h6 class="m-0 p-3 text-left">Most used algorithms<i class="material-icons mt-2 mr-2" id="icon-most-used">keyboard_arrow_down</i></h6>
+					</div>
+				</button>
+				<div id="most-used-collapse" class="collapse" aria-labelledby="most-used-collapse" data-parent="#accordion">
+					<div class="card-body">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-row mt-3 mx-0 px-0">
+
+			<div class="form-group col-6" style="transform: translateX(-5px);">
+				<input type="text" id="quick-hash" class="form-control" style="font-size: 16px;" placeholder="Quick hash :">
+			</div>
+			<div class="form-group col-4">
+				<select class="form-control" id="hash-method">
+					<option>MD5</option>
+					<option>Bcrypt</option>
+					<option>SHA256</option>
+				</select>
+			</div>
+			<div class="form-group col-2">
+				<button class="btn" id="hash-main">Hash</button>
+			</div>
+		</div>
+		
+
+
+		
+
+	</div>
+</div>
+
+
+
+<script>
+	document.getElementById("historic-button").addEventListener("click", () => {
+		let x = document.getElementById("icon-historic")
+		if(x.innerHTML === "keyboard_arrow_down"){
+			x.innerHTML = "keyboard_arrow_up"
+		}else{
+			x.innerHTML = "keyboard_arrow_down"
+		}
+	})
+
+	document.getElementById("most-used-button").addEventListener("click", () => {
+		let x = document.getElementById("icon-most-used")
+		if(x.innerHTML === "keyboard_arrow_down"){
+			x.innerHTML = "keyboard_arrow_up"
+		}else{
+			x.innerHTML = "keyboard_arrow_down"
+		}
+	})
+	
+</script>
+

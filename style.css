@@ -45,10 +45,20 @@
 	font-weight: bold;
 }
 
+
+#main-page-link{
+	text-decoration: none;
+	color: #343a40;
+}
+
+#main-page-link:hover{
+	color: #222;
+}
+
 hr {
 	background-color: rgb(229, 139, 4);
-	
 }
+
 .content{
 	margin-left: 175px;
 	height: 100%;
@@ -60,16 +70,73 @@ hr {
 	margin-top: 10px;
 	text-decoration: none;
 	color: #343a40;
+	cursor: pointer;
 }
+
+
 
 .main-link:hover, .link:hover{
 	color: #222;
-	cursor: pointer;
 }
+
+.wip{
+	background-color: rgba(0,0,0, .2);
+}
+
+.wip:hover{
+	background-color: rgba(0,0,0, .4);
+	cursor: not-allowed;
+}
+
 
 i{
 	position: absolute;
 	right: 10px;
 	top: 20px;
 	transform: translateY(-50%);
+}
+
+
+
+.article{
+	border-radius: 8px;
+	border: 1px solid rgba(100,100,100,.4);
+	padding: 8px 12px 0px 12px;
+	background-color: rgba(255,255,255,.8);
+}
+
+.accordion-button{
+	text-decoration: none;
+	background-color: #FBB448FF;
+	color: #343a40;
+
+	transition: background-color .2s ease-in-out;
+}
+
+.accordion-button:hover{
+	color: #222;
+	text-decoration: none;
+	background-color: rgb(250, 164, 35);
+	transition: background-color .2s ease-in-out;
+}
+
+
+#hash-main, #md5-button, #sha-button, #bcrypt-button{
+	background-color: rgb(251, 171, 51);
+	font-weight: 700;
+	color: #343a40;
+}
+
+#hash-main:hover, #md5-button:hover, #sha-button:hover, #bcrypt-button:hover{
+	color: #222;
+	background-color: rgb(249, 151, 5);
+}
+
+#quick-hash:focus, #hash-method:focus, #text-to-hash-md5:focus, #text-to-hash-sha:focus, #text-to-hash-bcrypt:focus{
+	border: 0px solid transparent;
+	box-shadow: 0px 0px 5px 2px rgb(251, 171, 51);
+}
+
+#hash-main:focus, #md5-button:focus, #historic-button:focus, #most-used-button:focus, #bcrypt-button:focus{
+	box-shadow: 0px 0px 0px 0px transparent;
 }

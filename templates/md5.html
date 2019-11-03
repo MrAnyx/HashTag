@@ -1,27 +1,37 @@
-<h1 class="text-center">MD5</h1>
+<h1 class="text-center mt-2">MD5</h1>
 
-<p class="text-justify" style="font-size: 13px;">The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities... <a href="#" id="md5-learn">Learn more</a></p>
+<p class="text-justify" style="font-size: 14px;">The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to ... <a href="#" id="md5-learn">Learn more</a></p>
 
 <hr class="mx-3" style="background-color: #aaa">
 
 <div class="form-group">
 	<label for="text-to-hash-md5">Enter something to hash :</label>
-	<textarea class="form-control" id="text-to-hash-md5" style="min-height: 90px; max-height: 90px; height: 90px"></textarea>
+	<textarea class="form-control" id="text-to-hash-md5" style="min-height: 55px; max-height: 55px; height: 55px"></textarea>
+	<span class="text-muted" style="font-size: 13px">We will never keep anything from your hashes</span>
 </div>
 
-<button class="btn btn-warning btn-block font-weight-bold">
+<button class="btn btn-block font-weight-bold" id="md5-button">
 	Hash
 </button>
 
 <script>
 	
-
 	const electron = require('electron')
 	const shell = electron.shell
+	const ipc = electron.ipcRenderer
 
 	document.getElementById("md5-learn").addEventListener("click", () => {
 		shell.openExternal("https://en.wikipedia.org/wiki/MD5")
 	})
 
+
+	document.getElementById("md5-button").addEventListener("click", () => {
+		let data = document.getElementById("text-to-hash-md5").value
+		ipc.send("hash-md5", data)
+		ipc.once("hash-md5-reply", (evt, args) => {
+			console.log(args)
+		})
+
+	})
 
 </script>

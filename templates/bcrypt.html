@@ -1,0 +1,31 @@
+<h1 class="text-center mt-2">Bcrypt</h1>
+
+<p class="text-justify" style="font-size: 14px;">Bcrypt is a password hashing function designed by Niels Provos and David Mazières, based on the Blowfish cipher, and presented at USENIX in 1999 ... <a href="#" id="bcrypt-learn">Learn more</a></p>
+
+<hr class="mx-3" style="background-color: #aaa">
+
+<div class="form-group">
+	<label for="text-to-hash-bcrypt">Enter something to hash :</label>
+	<textarea class="form-control" id="text-to-hash-bcrypt" style="min-height: 55px; max-height: 55px; height: 55px"></textarea>
+	<span class="text-muted" style="font-size: 13px">We will never keep anything from your hashes</span>
+</div>
+
+<div class="form-group">
+	<label for="text-to-hash-bcrypt">Salt :</label>
+	<input type="number" class="form-control" id="salt-bcrypt" placeholder="Default: 10">
+</div>
+
+<button class="btn btn-block font-weight-bold mb-3" id="bcrypt-button">
+	Hash
+</button>
+
+<script>
+	
+	const electron = require('electron')
+	const shell = electron.shell
+
+	document.getElementById("bcrypt-learn").addEventListener("click", () => {
+		shell.openExternal("https://en.wikipedia.org/wiki/Bcrypt")
+	})
+
+</script>
