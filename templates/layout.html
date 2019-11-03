@@ -78,6 +78,10 @@
 		require('bootstrap');
     	require('popper.js');
 
+    	const electron = require('electron')
+		const shell = electron.shell
+		const ipc = electron.ipcRenderer
+
 
 		$(document).ready(function(){
 

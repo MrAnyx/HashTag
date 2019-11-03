@@ -36,6 +36,10 @@ ipcMain.on("hash-md5", (event, args) => {
 	event.reply("hash-md5-reply", md5(args))
 })
 
+ipcMain.on("hash-bcrypt", (event, args) => {
+	event.reply("hash-bcrypt-reply", bcrypt.hashSync(args.text, args.salt))
+})
+
 
 
 

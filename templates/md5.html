@@ -16,22 +16,19 @@
 
 <script>
 	
-	const electron = require('electron')
-	const shell = electron.shell
-	const ipc = electron.ipcRenderer
+	
 
 	document.getElementById("md5-learn").addEventListener("click", () => {
 		shell.openExternal("https://en.wikipedia.org/wiki/MD5")
 	})
 
-
-	document.getElementById("md5-button").addEventListener("click", () => {
-		let data = document.getElementById("text-to-hash-md5").value
-		ipc.send("hash-md5", data)
+	let button = document.getElementById("md5-button")
+	button.addEventListener("click", () => {
+		let data = document.getElementById("text-to-hash-md5")
+		ipc.send("hash-md5", data.value)
 		ipc.once("hash-md5-reply", (evt, args) => {
-			console.log(args)
+			data.value = args
 		})
-
 	})
 
 </script>

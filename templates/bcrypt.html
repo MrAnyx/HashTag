@@ -6,13 +6,14 @@
 
 <div class="form-group">
 	<label for="text-to-hash-bcrypt">Enter something to hash :</label>
-	<textarea class="form-control" id="text-to-hash-bcrypt" style="min-height: 55px; max-height: 55px; height: 55px"></textarea>
+	<textarea class="form-control" id="text-to-hash-bcrypt" style="min-height: 65px; max-height: 65px; height: 65px"></textarea>
 	<span class="text-muted" style="font-size: 13px">We will never keep anything from your hashes</span>
 </div>
 
 <div class="form-group">
 	<label for="text-to-hash-bcrypt">Salt :</label>
-	<input type="number" class="form-control" id="salt-bcrypt" placeholder="Default: 10">
+	<input type="number" class="form-control" id="salt-bcrypt" placeholder="Default: 10" min="10" max="20">
+	<span class="text-muted" style="font-size: 13px">Be careful with the salt number. The bigger the number is, the longer it will be. 10 is the default salt, but we recommend you to use 12</span>
 </div>
 
 <button class="btn btn-block font-weight-bold mb-3" id="bcrypt-button">
@@ -21,11 +22,29 @@
 
 <script>
 	
-	const electron = require('electron')
-	const shell = electron.shell
-
+	
 	document.getElementById("bcrypt-learn").addEventListener("click", () => {
 		shell.openExternal("https://en.wikipedia.org/wiki/Bcrypt")
+	})
+
+	let button = document.getElementById("bcrypt-button")
+	button.addEventListener("click", () => {
+
+		let data = document.getElementById("text-to-hash-bcrypt")
+		let number = document.getElementById("salt-bcrypt").value
+
+		if(number == ""){
+			number = 10
+		}
+
+		let hash = {
+			text: data.value,
+			salt: parseInt(number)
+		}
+		ipc.send("hash-bcrypt", hash)
+		ipc.once("hash-bcrypt-reply", (evt, args) => {
+			data.value = args
+		})
 	})
 
 </script>
