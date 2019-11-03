@@ -137,6 +137,6 @@ i{
 	box-shadow: 0px 0px 5px 2px rgb(251, 171, 51);
 }
 
-#hash-main:focus, #md5-button:focus, #historic-button:focus, #most-used-button:focus, #bcrypt-button:focus{
+#hash-main:focus, #md5-button:focus, #historic-button:focus, #most-used-button:focus, #bcrypt-button:focus, #sha-button:focus{
 	box-shadow: 0px 0px 0px 0px transparent;
 }

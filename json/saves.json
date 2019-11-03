@@ -1,4 +1,37 @@
 {
-  "historic": [],
-  "most_used": []
+  "historic": [
+    {
+      "uuid": 1572794488461,
+      "type": "MD5",
+      "text": "",
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "uuid": 1572795291275,
+      "type": "SHA-256",
+      "text": "",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "uuid": 1572795451927,
+      "type": "Bcrypt",
+      "text": "",
+      "hash": "$2a$10$.YOVYeG9Xz2k.EyLWUg4XusCjLJTpho.XT7gHNz/RFuGf3RlyAlVa",
+      "salt": 10
+    }
+  ],
+  "most_used": [
+    {
+      "id": "md5",
+      "count": 57
+    },
+    {
+      "id": "bcrypt",
+      "count": 11
+    },
+    {
+      "id": "sha256",
+      "count": 1
+    }
+  ]
 }

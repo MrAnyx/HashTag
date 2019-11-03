@@ -6,7 +6,7 @@
 
 <div class="form-group">
 	<label for="text-to-hash-sha">Enter something to hash :</label>
-	<textarea class="form-control" id="text-to-hash-sha" style="min-height: 55px; max-height: 55px; height: 55px"></textarea>
+	<textarea class="form-control" id="text-to-hash-sha" style="min-height: 65px; max-height: 65px; height: 65px"></textarea>
 	<span class="text-muted" style="font-size: 13px">We will never keep anything from your hashes</span>
 </div>
 
@@ -20,6 +20,15 @@
 
 	document.getElementById("sha-learn").addEventListener("click", () => {
 		shell.openExternal("https://en.wikipedia.org/wiki/SHA-2")
+	})
+
+	let button = document.getElementById("sha-button")
+	button.addEventListener("click", () => {
+		let data = document.getElementById("text-to-hash-sha")
+		ipc.send("hash-sha", data.value)
+		ipc.once("hash-sha-reply", (evt, args) => {
+			data.value = args
+		})
 	})
 
 </script>
