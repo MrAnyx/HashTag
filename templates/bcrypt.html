@@ -27,8 +27,11 @@
 		shell.openExternal("https://en.wikipedia.org/wiki/Bcrypt")
 	})
 
-	let button = document.getElementById("bcrypt-button")
-	button.addEventListener("click", () => {
+	if(typeof bcrypt_button === 'undefined') {
+		let bcrypt_button = document.getElementById("bcrypt-button")
+		bcrypt_button.addEventListener("click", () => {
+
+		console.log("click bcrypt")
 
 		let data = document.getElementById("text-to-hash-bcrypt")
 		let number = document.getElementById("salt-bcrypt").value
@@ -38,8 +41,8 @@
 		}
 
 
-		if(parseInt(number) < 10 || parseInt(number) > 20){
-			document.getElementById("salt-bcrypt").classList.toggle("is-invalid")
+		if(parseInt(number) < 10 || parseInt(number) > 15){
+			document.getElementById("salt-bcrypt").classList.add("is-invalid")
 		}else{
 			let hash = {
 				text: data.value,
@@ -50,6 +53,15 @@
 				data.value = args
 			})
 		}
-	})
+		})
+
+		document.getElementById("salt-bcrypt").addEventListener("change", () => {
+		document.getElementById("salt-bcrypt").classList.remove("is-invalid")
+		})
+	}
+
+	
+
+
 
 </script>

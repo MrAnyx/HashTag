@@ -132,7 +132,7 @@ i{
 	background-color: rgb(249, 151, 5);
 }
 
-#quick-hash:focus, #hash-method:focus, #text-to-hash-md5:focus, #text-to-hash-sha:focus, #text-to-hash-bcrypt:focus{
+#quick-hash:focus, #hash-method:focus, #text-to-hash-md5:focus, #text-to-hash-sha:focus, #text-to-hash-bcrypt:focus, #salt-bcrypt:focus{
 	border: 0px solid transparent;
 	box-shadow: 0px 0px 5px 2px rgb(251, 171, 51);
 }

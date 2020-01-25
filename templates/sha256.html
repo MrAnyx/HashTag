@@ -10,9 +10,7 @@
 	<span class="text-muted" style="font-size: 13px">We will never keep anything from your hashes</span>
 </div>
 
-<button class="btn btn-block font-weight-bold" id="sha-button">
-	Hash
-</button>
+<button class="btn btn-block font-weight-bold" id="sha-button">Hash</button>
 
 <script>
 	
@@ -22,13 +20,17 @@
 		shell.openExternal("https://en.wikipedia.org/wiki/SHA-2")
 	})
 
-	let button = document.getElementById("sha-button")
-	button.addEventListener("click", () => {
-		let data = document.getElementById("text-to-hash-sha")
-		ipc.send("hash-sha", data.value)
-		ipc.once("hash-sha-reply", (evt, args) => {
-			data.value = args
+	if(typeof sha_button === 'undefined') {
+		let sha_button = document.getElementById("sha-button")
+		sha_button.addEventListener("click", () => {
+			console.log("click sha256")
+			let data = document.getElementById("text-to-hash-sha")
+			ipc.send("hash-sha", data.value)
+			ipc.once("hash-sha-reply", (evt, args) => {
+				data.value = args
+			})
 		})
-	})
+	}
+	
 
 </script>

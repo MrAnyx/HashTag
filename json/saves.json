@@ -1,37 +1,224 @@
 {
   "historic": [
     {
-      "uuid": 1572794488461,
+      "uuid": 1579947394582,
       "type": "MD5",
-      "text": "",
-      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
     },
     {
-      "uuid": 1572795291275,
-      "type": "SHA-256",
-      "text": "",
-      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "uuid": 1579947395590,
+      "type": "MD5",
+      "text": "f02368945726d5fc2a14eb576f7276c0",
+      "hash": "ccf435bf06f991858d29486b40fe6748"
     },
     {
-      "uuid": 1572795451927,
+      "uuid": 1579947396506,
+      "type": "MD5",
+      "text": "ccf435bf06f991858d29486b40fe6748",
+      "hash": "066778364bd3b4ee6cce5d400f31ddf5"
+    },
+    {
+      "uuid": 1579947408237,
+      "type": "MD5",
+      "text": "066778364bd3b4ee6cce5d400f31ddf5",
+      "hash": "455a9d11664a2d5fae4ade3add7c2ef0"
+    },
+    {
+      "uuid": 1579947408375,
+      "type": "MD5",
+      "text": "455a9d11664a2d5fae4ade3add7c2ef0",
+      "hash": "0dbfbd255da3ae3422c24739a0d9afc9"
+    },
+    {
+      "uuid": 1579947413004,
+      "type": "MD5",
+      "text": "0dbfbd255da3ae3422c24739a0d9afc9",
+      "hash": "3dce43ea67bab72a144ed63e84d67646"
+    },
+    {
+      "uuid": 1579947413121,
+      "type": "MD5",
+      "text": "3dce43ea67bab72a144ed63e84d67646",
+      "hash": "cb6954200b8b6e907b165d4cbc80f1ab"
+    },
+    {
+      "uuid": 1579947452027,
       "type": "Bcrypt",
-      "text": "",
-      "hash": "$2a$10$.YOVYeG9Xz2k.EyLWUg4XusCjLJTpho.XT7gHNz/RFuGf3RlyAlVa",
+      "text": "bonjour",
+      "hash": "$2a$10$/sE6ugyLNI0V8DNjsmbnRe.Ht6lfxlaOAagH4y9YsiFwgVp63Aoj6",
       "salt": 10
+    },
+    {
+      "uuid": 1579947467790,
+      "type": "Bcrypt",
+      "text": "$2a$10$fxr.DJo6FmNspun0uGGVbOes3d9wr/9GX03ryf3DmItB9D8nZWIzm",
+      "hash": "$2a$12$oB8FWsIA8vofSQLGEPnQ/.mgp3Aet1iWqz9nvLD10FXauTvP6Lj7e",
+      "salt": 12
+    },
+    {
+      "uuid": 1579947471320,
+      "type": "Bcrypt",
+      "text": "$2a$12$JTh0X.ynq3CdNmc6wTLFZ.3LvZKAn2cPPh02Tx8/SYfTTG2hAmtcO",
+      "hash": "$2a$12$PWqUbI5LJ3dTZBF2..eAsOIO2fj8qtfboZrBtY07TyBCI3Lqz5biq",
+      "salt": 12
+    },
+    {
+      "uuid": 1579947661526,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1579947734158,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1579947740603,
+      "type": "Bcrypt",
+      "text": "bonjour",
+      "hash": "$2a$10$NORl4aM3cxpbvEQiqSlCw.MnfdTfkbB2yTRQFLoGvSfRvhKrJh3V2",
+      "salt": 10
+    },
+    {
+      "uuid": 1579947746418,
+      "type": "SHA-256",
+      "text": "bonjour",
+      "hash": "2cb4b1431b84ec15d35ed83bb927e27e8967d75f4bcd9cc4b25c8d879ae23e18"
+    },
+    {
+      "uuid": 1579947747565,
+      "type": "SHA-256",
+      "text": "2cb4b1431b84ec15d35ed83bb927e27e8967d75f4bcd9cc4b25c8d879ae23e18",
+      "hash": "1ea04f0bd65b277f097f6320084a02598b4e2aab1d3bf0ad106bf68ea5b6cbc5"
+    },
+    {
+      "uuid": 1579948031638,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1579948316664,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1579948317525,
+      "type": "MD5",
+      "text": "f02368945726d5fc2a14eb576f7276c0",
+      "hash": "ccf435bf06f991858d29486b40fe6748"
+    },
+    {
+      "uuid": 1579948318292,
+      "type": "MD5",
+      "text": "ccf435bf06f991858d29486b40fe6748",
+      "hash": "066778364bd3b4ee6cce5d400f31ddf5"
+    },
+    {
+      "uuid": 1579948784585,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1579948791367,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1579948874830,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1579948879769,
+      "type": "Bcrypt",
+      "text": "bojnour",
+      "hash": "$2a$10$8jpBFL4VTOeEATRATNJDKOoHPKgrgASPn4iRTdhUhKh8Y8XZT4Fmq",
+      "salt": 10
+    },
+    {
+      "uuid": 1579949010559,
+      "type": "SHA-256",
+      "text": "bonjour",
+      "hash": "2cb4b1431b84ec15d35ed83bb927e27e8967d75f4bcd9cc4b25c8d879ae23e18"
+    },
+    {
+      "uuid": 1579949072979,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1579949078994,
+      "type": "Bcrypt",
+      "text": "bonjour",
+      "hash": "$2a$10$GMf5ITxk8gIT/EakqF.YVOiucwAI4MWc17Qlpv5zCfRXmYXzz565e",
+      "salt": 10
+    },
+    {
+      "uuid": 1579949082609,
+      "type": "Bcrypt",
+      "text": "$2a$10$Oc41vtqNAJZUXmfDHL8fpu5XE6uWTYV65H0yDK5YvUv5uIgkupIJq",
+      "hash": "$2a$10$jBluZDk8bBaclSBPaYxac.ezTDBv7tZH3IcvUP0j7m8fYLZt3IYL2",
+      "salt": 10
+    },
+    {
+      "uuid": 1579949089974,
+      "type": "SHA-256",
+      "text": "bonjour",
+      "hash": "2cb4b1431b84ec15d35ed83bb927e27e8967d75f4bcd9cc4b25c8d879ae23e18"
+    },
+    {
+      "uuid": 1579949094128,
+      "type": "SHA-256",
+      "text": "2cb4b1431b84ec15d35ed83bb927e27e8967d75f4bcd9cc4b25c8d879ae23e18",
+      "hash": "1ea04f0bd65b277f097f6320084a02598b4e2aab1d3bf0ad106bf68ea5b6cbc5"
+    },
+    {
+      "uuid": 1579949098747,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1579949104712,
+      "type": "Bcrypt",
+      "text": "bonjour",
+      "hash": "$2a$10$nhqeRqpz.B7yJMyRjPrjheec52E24xNxcZrCk1XhGPmynRxQt8CxW",
+      "salt": 10
+    },
+    {
+      "uuid": 1579949110397,
+      "type": "SHA-256",
+      "text": "bonjour",
+      "hash": "2cb4b1431b84ec15d35ed83bb927e27e8967d75f4bcd9cc4b25c8d879ae23e18"
+    },
+    {
+      "uuid": 1579949112011,
+      "type": "SHA-256",
+      "text": "2cb4b1431b84ec15d35ed83bb927e27e8967d75f4bcd9cc4b25c8d879ae23e18",
+      "hash": "1ea04f0bd65b277f097f6320084a02598b4e2aab1d3bf0ad106bf68ea5b6cbc5"
     }
   ],
   "most_used": [
     {
-      "id": "md5",
-      "count": 57
+      "id": "MD5",
+      "count": 18
     },
     {
-      "id": "bcrypt",
-      "count": 11
+      "id": "Bcrypt",
+      "count": 9
     },
     {
-      "id": "sha256",
-      "count": 1
+      "id": "SHA-256",
+      "count": 7
     }
   ]
 }

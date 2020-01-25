@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Menu } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const bcrypt = require("bcryptjs")
 const sha256 = require('js-sha256');
@@ -12,7 +12,7 @@ const md5 = require("md5")
 
 let win
 
-saves.defaults({ historic: [], most_used: [{id: "md5", count: 0}, {id: "bcrypt", count: 0}, {id: "sha256", count: 0}] }).write()
+saves.defaults({ historic: [], most_used: [{id: "MD5", count: 0}, {id: "Bcrypt", count: 0}, {id: "SHA-256", count: 0}] }).write()
 
 
 app.on('ready', () => {
@@ -34,27 +34,27 @@ app.on('ready', () => {
 })
 
 ipcMain.on("hash-md5", (event, args) => {
-	let count = saves.get('most_used').find({id: "md5"}).value().count
-	saves.get("most_used").find({id: "md5"}).assign({ count: count + 1}).write()
+	let count = saves.get('most_used').find({id: "MD5"}).value().count
+	saves.get("most_used").find({id: "MD5"}).assign({ count: count + 1}).write()
 	saves.get("historic").push({uuid: new Date().getTime(), type: "MD5", text: args, hash: md5(args)}).write()
 	event.reply("hash-md5-reply", md5(args))
 })
 
 ipcMain.on("hash-bcrypt", (event, args) => {
-	let count = saves.get('most_used').find({id: "bcrypt"}).value().count
-	saves.get("most_used").find({id: "bcrypt"}).assign({ count: count + 1}).write()
-	saves.get("historic").push({uuid: new Date().getTime(), type: "Bcrypt", text: args.text, hash: bcrypt.hashSync(args.text, args.salt), salt: args.salt}).write()
-	event.reply("hash-bcrypt-reply", bcrypt.hashSync(args.text, args.salt))
+	let hash = bcrypt.hashSync(args.text, args.salt)
+	let count = saves.get('most_used').find({id: "Bcrypt"}).value().count
+	saves.get("most_used").find({id: "Bcrypt"}).assign({ count: count + 1}).write()
+	saves.get("historic").push({uuid: new Date().getTime(), type: "Bcrypt", text: args.text, hash: hash, salt: args.salt}).write()
+	event.reply("hash-bcrypt-reply", hash)
 })
 
 ipcMain.on("hash-sha", (event, args) => {
-	let count = saves.get('most_used').find({id: "sha256"}).value().count
-	saves.get("most_used").find({id: "sha256"}).assign({ count: count + 1}).write()
-	saves.get("historic").push({uuid: new Date().getTime(), type: "SHA-256", text: args, hash: sha256(args)}).write()
-	event.reply("hash-sha-reply", sha256(args))
+	let hash = sha256(args)
+	let count = saves.get('most_used').find({id: "SHA-256"}).value().count
+	saves.get("most_used").find({id: "SHA-256"}).assign({ count: count + 1}).write()
+	saves.get("historic").push({uuid: new Date().getTime(), type: "SHA-256", text: args, hash: hash}).write()
+	event.reply("hash-sha-reply", hash)
 })
-
-
 
 
 app.on('window-all-closed', () => {

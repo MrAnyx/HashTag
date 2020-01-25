@@ -22,13 +22,17 @@
 		shell.openExternal("https://en.wikipedia.org/wiki/MD5")
 	})
 
-	let button = document.getElementById("md5-button")
-	button.addEventListener("click", () => {
-		let data = document.getElementById("text-to-hash-md5")
-		ipc.send("hash-md5", data.value)
-		ipc.once("hash-md5-reply", (evt, args) => {
-			data.value = args
+	if(typeof md5_button === 'undefined') {
+		let md5_button = document.getElementById("md5-button")
+		md5_button.addEventListener("click", () => {
+			console.log("click md5")
+			let data = document.getElementById("text-to-hash-md5")
+			ipc.send("hash-md5", data.value)
+			ipc.once("hash-md5-reply", (evt, args) => {
+				data.value = args
+			})
 		})
-	})
+	}
+	
 
 </script>
