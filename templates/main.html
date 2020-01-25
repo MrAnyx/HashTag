@@ -54,11 +54,12 @@
 			</div>
 			<div class="form-group col-4">
 				<select class="form-control" id="hash-method">
-					<option>MD5</option>
-					<option>Bcrypt</option>
-					<option>SHA256</option>
+					<option value="md5">MD5</option>
+					<option value="bcrypt">Bcrypt</option>
+					<option value="sha256">SHA256</option>
 				</select>
-			</div>
+				<span class="text-muted pl-4" style="font-size: 13px" id="default-value-bcrypt">Default : 12</span>
+			</div> 
 			<div class="form-group col-2">
 				<button class="btn" id="hash-main">Hash</button>
 			</div>
@@ -74,23 +75,96 @@
 
 
 <script>
-	document.getElementById("historic-button").addEventListener("click", () => {
-		let x = document.getElementById("icon-historic")
-		if(x.innerHTML === "keyboard_arrow_down"){
-			x.innerHTML = "keyboard_arrow_up"
-		}else{
-			x.innerHTML = "keyboard_arrow_down"
-		}
-	})
 
-	document.getElementById("most-used-button").addEventListener("click", () => {
-		let x = document.getElementById("icon-most-used")
-		if(x.innerHTML === "keyboard_arrow_down"){
-			x.innerHTML = "keyboard_arrow_up"
-		}else{
-			x.innerHTML = "keyboard_arrow_down"
+	if(typeof historic_button === "undefined"){
+		let historic_button = document.getElementById("historic-button")
+		historic_button.addEventListener("click", () => {
+			let x = document.getElementById("icon-historic")
+			if(x.innerHTML === "keyboard_arrow_down"){
+				x.innerHTML = "keyboard_arrow_up"
+			}else{
+				x.innerHTML = "keyboard_arrow_down"
+			}
+		})
+	}
+	
+	if(typeof most_used_button === "undefined"){
+		let most_used_button = document.getElementById("most-used-button")
+		most_used_button.addEventListener("click", () => {
+			let x = document.getElementById("icon-most-used")
+			if(x.innerHTML === "keyboard_arrow_down"){
+				x.innerHTML = "keyboard_arrow_up"
+			}else{
+				x.innerHTML = "keyboard_arrow_down"
+			}
+		})
+	}
+
+	if(typeof hash_main_button === "undefined"){
+
+		let hash_main_select = "md5" //default value
+
+		let data = ""
+
+		let hash_main_button = document.getElementById("hash-main")
+
+		let select_hash = document.getElementById("hash-method")
+
+		if(hash_main_select == "bcrypt") {
+			document.getElementById("default-value-bcrypt").classList.remove("d-none")
+		} else {
+			document.getElementById("default-value-bcrypt").classList.add("d-none")
 		}
-	})
+
+		select_hash.addEventListener("change", () => {
+			hash_main_select = select_hash[select_hash.selectedIndex].value
+
+			if(hash_main_select == "bcrypt") {
+				document.getElementById("default-value-bcrypt").classList.remove("d-none")
+			} else {
+				document.getElementById("default-value-bcrypt").classList.add("d-none")
+			}
+		})
+
+
+		hash_main_button.addEventListener("click", () => {
+			switch (hash_main_select) {
+				case "md5":
+					data = document.getElementById("quick-hash")
+					ipc.send("hash-md5", data.value)
+					ipc.once("hash-md5-reply", (evt, args) => {
+						data.value = args
+					})
+					break;
+			
+				case "bcrypt":
+					data = document.getElementById("quick-hash")
+					let hash = {
+						text: data.value,
+						salt: 12
+					}
+					ipc.send("hash-bcrypt", hash)
+					ipc.once("hash-bcrypt-reply", (evt, args) => {
+						data.value = args
+					})
+					break;
+
+				case "sha256":
+					data = document.getElementById("quick-hash")
+					ipc.send("hash-sha", data.value)
+					ipc.once("hash-sha-reply", (evt, args) => {
+						data.value = args
+					})
+					break;
+			
+			
+			}
+			
+			
+		})
+	}
+
+	
 	
 </script>
 

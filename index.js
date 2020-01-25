@@ -26,6 +26,7 @@ app.on('ready', () => {
 		show: false
 	})
 
+	//win.setMenu(null)
 	win.loadFile(path.join(__dirname, './templates/layout.html'))
 	win.on("ready-to-show", () => { win.show() })
 	win.on('closed', () => {
@@ -55,6 +56,7 @@ ipcMain.on("hash-sha", (event, args) => {
 	saves.get("historic").push({uuid: new Date().getTime(), type: "SHA-256", text: args, hash: hash}).write()
 	event.reply("hash-sha-reply", hash)
 })
+
 
 
 app.on('window-all-closed', () => {
