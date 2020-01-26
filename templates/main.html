@@ -27,8 +27,9 @@
 					</div>
 				</button>
 				<div id="historic-collapse" class="collapse" aria-labelledby="historic-collapse" data-parent="#accordion">
-					<div class="card-body">
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					<div class="card-body" id="historic-content">
+
+
 					</div>
 				</div>
 			</div>
@@ -40,7 +41,7 @@
 					</div>
 				</button>
 				<div id="most-used-collapse" class="collapse" aria-labelledby="most-used-collapse" data-parent="#accordion">
-					<div class="card-body">
+					<div class="card-body" d="most-used-content">
 						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
 					</div>
 				</div>
@@ -75,6 +76,58 @@
 
 
 <script>
+
+	$(document).ready(() => {
+		ipc.send("get-historic")
+		ipc.once("get-historic-reply", (evt, args) => {
+			let historic = document.getElementById("historic-content")
+			let div
+			let span_text
+			let inner_span
+			let span_method
+			let link
+			let hr
+			args.historic.forEach(el => {
+				// <div class="d-flex justify-content-between">
+				// 	<span class="p-2 ellipsis font-weight-bold">text to hash initialkjsdh fkjqhs dflkjqsdh lkfj hqsjkdlf hlqsd fqsd kfj qsdfh </span>
+				// 	<span class="p-2 text-muted">Bcrypt(12)</span>
+				// 	<a class="p-2 button_copy rounded">Copy</a>
+				// </div>
+				// <hr class="bg-secondary" style="filter: opacity(30%);">
+
+				div = document.createElement("div")
+				div.setAttribute("class", "d-flex justify-content-between")
+
+				span_text = document.createElement("span")
+				span_text.setAttribute("class", "p-2 ellipsis font-weight-bold")
+				inner_span = document.createTextNode(el.text)
+				span_text.appendChild(inner_span)
+
+				span_method = document.createElement("span")
+				span_method.setAttribute("class", "p-2 text-muted")
+				inner_span = document.createTextNode(el.type)
+				span_method.appendChild(inner_span)
+
+				link = document.createElement("a")
+				link.setAttribute("class", "p-2 button_copy rounded")
+				inner_span = document.createTextNode("Copy")
+				link.appendChild(inner_span)
+
+				div.appendChild(span_text)
+				div.appendChild(span_method)
+				div.appendChild(link)
+
+				hr = document.createElement("hr")
+				hr.setAttribute("class", "bg-secondary")
+				hr.setAttribute("style", "filter: opacity(30%);")
+
+				historic.appendChild(div)
+				historic.appendChild(hr)
+				
+
+			})
+		})
+	})
 
 	if(typeof historic_button === "undefined"){
 		let historic_button = document.getElementById("historic-button")
