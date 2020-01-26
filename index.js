@@ -8,6 +8,8 @@ const FileSync = require('lowdb/adapters/FileSync')
 const savesFile = new FileSync('json/saves.json')
 const saves = low(savesFile)
 
+const _ = require("underscore")
+
 const md5 = require("md5")
 
 let win
@@ -59,7 +61,7 @@ ipcMain.on("hash-sha", (event, args) => {
 
 ipcMain.on("get-historic", (evt, args) => {
 	let result = {
-		historic: saves.get("historic").take(10).value(),
+		historic: _.first(_.sortBy(saves.get("historic").value(), "uuid").reverse(), 10),
 		most_used: saves.get("most_used").value()
 	}
 	evt.reply("get-historic-reply", result)

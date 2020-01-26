@@ -27,10 +27,7 @@
 					</div>
 				</button>
 				<div id="historic-collapse" class="collapse" aria-labelledby="historic-collapse" data-parent="#accordion">
-					<div class="card-body" id="historic-content">
-
-
-					</div>
+					<div class="card-body p-0" id="historic-content"></div>
 				</div>
 			</div>
 
@@ -77,6 +74,34 @@
 
 <script>
 
+	
+
+	
+	
+	
+
+	if(typeof copyHash === "undefined"){
+		const copyHash = (self) => {
+			const el = document.createElement('textarea');
+			el.value = self.getAttribute("hash");
+			document.body.appendChild(el);
+			el.select();
+			document.execCommand('copy');
+			document.body.removeChild(el);
+			
+			
+			let parent = self.parentNode
+			let child = parent.childNodes[3]
+			child.style.display = "inline"
+			child.style.filter = "opacity(100%)"
+			setTimeout(() => {
+				child.style.filter = "opacity(0%)"
+				child.style.display = "none"
+			}, 1000);
+			
+		}
+	}
+
 	$(document).ready(() => {
 		ipc.send("get-historic")
 		ipc.once("get-historic-reply", (evt, args) => {
@@ -87,16 +112,11 @@
 			let span_method
 			let link
 			let hr
+			let copied
 			args.historic.forEach(el => {
-				// <div class="d-flex justify-content-between">
-				// 	<span class="p-2 ellipsis font-weight-bold">text to hash initialkjsdh fkjqhs dflkjqsdh lkfj hqsjkdlf hlqsd fqsd kfj qsdfh </span>
-				// 	<span class="p-2 text-muted">Bcrypt(12)</span>
-				// 	<a class="p-2 button_copy rounded">Copy</a>
-				// </div>
-				// <hr class="bg-secondary" style="filter: opacity(30%);">
 
 				div = document.createElement("div")
-				div.setAttribute("class", "d-flex justify-content-between")
+				div.setAttribute("class", "d-flex justify-content-between element_historic")
 
 				span_text = document.createElement("span")
 				span_text.setAttribute("class", "p-2 ellipsis font-weight-bold")
@@ -109,25 +129,33 @@
 				span_method.appendChild(inner_span)
 
 				link = document.createElement("a")
-				link.setAttribute("class", "p-2 button_copy rounded")
+				link.setAttribute("class", "p-2 button_copy rounded font-weight-bold")
+				link.setAttribute("hash", el.hash)
+				link.setAttribute("onclick", "copyHash(this);")
 				inner_span = document.createTextNode("Copy")
 				link.appendChild(inner_span)
+
+				copied = document.createElement("div")
+				copied.setAttribute("class", "copied")
+
 
 				div.appendChild(span_text)
 				div.appendChild(span_method)
 				div.appendChild(link)
+				div.appendChild(copied)
 
 				hr = document.createElement("hr")
-				hr.setAttribute("class", "bg-secondary")
+				hr.setAttribute("class", "bg-secondary p-0 m-0")
 				hr.setAttribute("style", "filter: opacity(30%);")
 
 				historic.appendChild(div)
 				historic.appendChild(hr)
-				
-
 			})
 		})
 	})
+	
+
+	
 
 	if(typeof historic_button === "undefined"){
 		let historic_button = document.getElementById("historic-button")
@@ -181,6 +209,8 @@
 
 
 		hash_main_button.addEventListener("click", () => {
+			
+			
 			switch (hash_main_select) {
 				case "md5":
 					data = document.getElementById("quick-hash")
@@ -212,6 +242,7 @@
 			
 			
 			}
+
 			
 			
 		})
