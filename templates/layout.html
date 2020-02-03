@@ -86,6 +86,8 @@
 		const shell = electron.shell
 		const ipc = electron.ipcRenderer
 
+		const swal = require('sweetalert')
+
 		const copyHash = (self) => {
 			const el = document.createElement('textarea');
 			el.value = self.getAttribute("hash");
@@ -107,6 +109,8 @@
 		}
 
 		$(document).ready(function(){
+
+			
 
 			$.ajax({
 				url: "main.html",

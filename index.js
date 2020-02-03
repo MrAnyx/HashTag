@@ -67,6 +67,43 @@ ipcMain.on("get-stats", (evt, args) => {
 	evt.reply("get-stats-reply", result)
 })
 
+ipcMain.on("verify", (event, args) => {
+	switch(args.hash.length){
+		case 64:
+			if(args.hash === sha256(args.text)){
+				event.reply("verify-reply", {result: true, type: "SHA-256"})
+			} else {
+				event.reply("verify-reply", {result: false, type: "SHA-256"})
+			}
+			break
+		case 32:
+			if(args.hash === md5(args.text)){
+				event.reply("verify-reply", {result: true, type: "MD5"})
+			} else {
+				event.reply("verify-reply", {result: false, type: "MD5"})
+			}
+			break
+		case 60:
+			
+			if(args.hash === bcrypt.hashSync(args.text, args.text.split("$")[2])){
+				event.reply("verify-reply", {result: true, type: "Bcrypt"})
+			} else {
+				event.reply("verify-reply", {result: false, type: "Bcrypt"})
+			}
+			break
+		default:
+			event.reply("verify-reply", {result: false, type: "Error"})
+	}
+
+
+
+	// let hash = sha256(args)
+	// let count = saves.get('most_used').find({id: "SHA-256"}).value().count
+	// saves.get("most_used").find({id: "SHA-256"}).assign({ count: count + 1}).write()
+	// saves.get("historic").push({uuid: new Date().getTime(), type: "SHA-256", text: args, hash: hash}).write()
+	// event.reply("hash-sha-reply", hash)
+})
+
 
 
 

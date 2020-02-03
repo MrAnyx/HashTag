@@ -5,35 +5,37 @@
 <hr class="mx-3" style="background-color: #aaa">
 
 <div class="form-group">
-	<label for="text-to-hash-md5">Enter the text to verify :</label>
-	<textarea class="form-control" id="text-to-hash-md5" style="min-height: 55px; max-height: 55px; height: 55px"></textarea>
+	<label for="verify-text">Enter the text to verify :</label>
+	<textarea class="form-control" id="verify-text" style="min-height: 55px; max-height: 55px; height: 55px"></textarea>
 </div>
 
 <div class="form-group">
-	<label for="text-to-hash-md5">Enter the corresponding hash : </label>
-	<textarea class="form-control" id="text-to-hash-md5" style="min-height: 55px; max-height: 55px; height: 55px"></textarea>
+	<label for="verify-hash">Enter the corresponding hash : </label>
+	<textarea class="form-control" id="verify-hash" style="min-height: 55px; max-height: 55px; height: 55px"></textarea>
 </div>
 
-<button class="btn btn-block font-weight-bold mb-3" id="md5-button">
+<button class="btn btn-block font-weight-bold mb-3" id="verify-button">
 	Verify
 </button>
 
 <script>
 	
-	
 
-	document.getElementById("md5-learn").addEventListener("click", () => {
-		shell.openExternal("https://en.wikipedia.org/wiki/MD5")
-	})
 
-	if(typeof md5_button === 'undefined') {
-		let md5_button = document.getElementById("md5-button")
-		md5_button.addEventListener("click", () => {
-			console.log("click md5")
-			let data = document.getElementById("text-to-hash-md5")
-			ipc.send("hash-md5", data.value)
-			ipc.once("hash-md5-reply", (evt, args) => {
-				data.value = args
+	if(typeof verify_button === 'undefined') {
+		let verify_button = document.getElementById("verify-button")
+		verify_button.addEventListener("click", () => {
+            let data = {
+                text: document.getElementById("verify-text").value,
+                hash: document.getElementById("verify-hash").value
+            }
+			ipc.send("verify", data)
+			ipc.once("verify-reply", (evt, args) => {
+				if(args.result){
+                    swal(args.type, "Le hash correspond au texte", "success")
+                }else{
+                    swal(args.type, "Le hash ne correspond pas au texte", "warning")
+                }
 			})
 		})
 	}

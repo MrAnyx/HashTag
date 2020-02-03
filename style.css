@@ -121,18 +121,18 @@ i{
 }
 
 
-#hash-main, #md5-button, #sha-button, #bcrypt-button{
+#hash-main, #md5-button, #sha-button, #bcrypt-button, #verify-button{
 	background-color: rgb(251, 171, 51);
 	font-weight: 700;
 	color: #343a40;
 }
 
-#hash-main:hover, #md5-button:hover, #sha-button:hover, #bcrypt-button:hover{
+#hash-main:hover, #md5-button:hover, #sha-button:hover, #bcrypt-button:hover, #verify-button:hover{
 	color: #222;
 	background-color: rgb(249, 151, 5);
 }
 
-#quick-hash:focus, #hash-method:focus, #text-to-hash-md5:focus, #text-to-hash-sha:focus, #text-to-hash-bcrypt:focus, #salt-bcrypt:focus{
+#quick-hash:focus, #hash-method:focus, #text-to-hash-md5:focus, #text-to-hash-sha:focus, #text-to-hash-bcrypt:focus, #salt-bcrypt:focus, #verify-text:focus, #verify-hash:focus{
 	border: 0px solid transparent;
 	box-shadow: 0px 0px 5px 2px rgb(251, 171, 51);
 }

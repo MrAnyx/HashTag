@@ -91,20 +91,53 @@
       "text": "fjhqskdhfkjdshfkqshdfkh",
       "hash": "$2a$12$E2y3XmpHIi3diJQn3r30CuPa/.EAjVkfturcaeoVNFNeqfISkK/gS",
       "salt": 12
+    },
+    {
+      "uuid": 1580738781538,
+      "type": "Bcrypt",
+      "text": "bonjour",
+      "hash": "$2a$10$.4TNIevz7y6a5EG9pQAQJ.5Q2KYuoTu.f1PhsYAdF2FvILgiQp1ye",
+      "salt": 10
+    },
+    {
+      "uuid": 1580738785835,
+      "type": "Bcrypt",
+      "text": "$2a$10$.4TNIevz7y6a5EG9pQAQJ.5Q2KYuoTu.f1PhsYAdF2FvILgiQp1ye",
+      "hash": "$2a$11$TSGLK6IAIr41CqmBT6tAo.9hMpGQpyo9nXvzflxKvKq62SYpGOYuq",
+      "salt": 11
+    },
+    {
+      "uuid": 1580738923306,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1580739316073,
+      "type": "Bcrypt",
+      "text": "bonjour",
+      "hash": "$2a$12$Rw2WZTdPYh9dj6Rec70CX.6af9.18b7F1AJ6akpk8ZMD5Bay7savG",
+      "salt": 12
+    },
+    {
+      "uuid": 1580739336705,
+      "type": "SHA-256",
+      "text": "bonjour",
+      "hash": "2cb4b1431b84ec15d35ed83bb927e27e8967d75f4bcd9cc4b25c8d879ae23e18"
     }
   ],
   "most_used": [
     {
       "id": "MD5",
-      "count": 12
+      "count": 13
     },
     {
       "id": "Bcrypt",
-      "count": 2
+      "count": 5
     },
     {
       "id": "SHA-256",
-      "count": 1
+      "count": 2
     }
   ]
 }
