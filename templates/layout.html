@@ -82,6 +82,26 @@
 		const shell = electron.shell
 		const ipc = electron.ipcRenderer
 
+		const copyHash = (self) => {
+			const el = document.createElement('textarea');
+			el.value = self.getAttribute("hash");
+			document.body.appendChild(el);
+			el.select();
+			document.execCommand('copy');
+			document.body.removeChild(el);
+			
+			
+			let parent = self.parentNode
+			let child = parent.childNodes[3]
+			child.style.display = "inline"
+			child.style.filter = "opacity(100%)"
+			setTimeout(() => {
+				child.style.filter = "opacity(0%)"
+				child.style.display = "none"
+			}, 1000);
+			
+		}
+
 		$(document).ready(function(){
 
 			$.ajax({

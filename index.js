@@ -59,13 +59,14 @@ ipcMain.on("hash-sha", (event, args) => {
 	event.reply("hash-sha-reply", hash)
 })
 
-ipcMain.on("get-historic", (evt, args) => {
+ipcMain.on("get-stats", (evt, args) => {
 	let result = {
 		historic: _.first(_.sortBy(saves.get("historic").value(), "uuid").reverse(), 10),
 		most_used: saves.get("most_used").value()
 	}
-	evt.reply("get-historic-reply", result)
+	evt.reply("get-stats-reply", result)
 })
+
 
 
 

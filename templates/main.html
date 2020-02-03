@@ -38,8 +38,10 @@
 					</div>
 				</button>
 				<div id="most-used-collapse" class="collapse" aria-labelledby="most-used-collapse" data-parent="#accordion">
-					<div class="card-body" d="most-used-content">
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					<div class="card-body" id="most-used-content">
+						<div class="d-flex">
+							
+						</div>
 					</div>
 				</div>
 			</div>
@@ -103,9 +105,10 @@
 	}
 
 	$(document).ready(() => {
-		ipc.send("get-historic")
-		ipc.once("get-historic-reply", (evt, args) => {
+		ipc.send("get-stats")
+		ipc.once("get-stats-reply", (evt, args) => {
 			let historic = document.getElementById("historic-content")
+			let most_used = document.getElementById("most-used-content")
 			let div
 			let span_text
 			let inner_span
@@ -150,6 +153,38 @@
 
 				historic.appendChild(div)
 				historic.appendChild(hr)
+			})
+
+			let index = 1;
+			let rank;
+			args.most_used.forEach(el => {
+				div = document.createElement("div")
+				div.setAttribute("class", "d-flex justify-content-between element_historic")
+
+				span_text = document.createElement("span")
+				span_text.setAttribute("class", "p-2 ellipsis font-weight-bold")
+				inner_span = document.createTextNode(el.id)
+				span_text.appendChild(inner_span)
+
+				span_method = document.createElement("span")
+				span_method.setAttribute("class", "p-2 text-muted")
+				rank = (index === 1) ? index+"er" : index+"ème"
+				inner_span = document.createTextNode(rank)
+				span_method.appendChild(inner_span)
+
+				index++
+				
+
+				div.appendChild(span_text)
+				div.appendChild(span_method)
+
+				hr = document.createElement("hr")
+				hr.setAttribute("class", "bg-secondary p-0 m-0")
+				hr.setAttribute("style", "filter: opacity(30%);")
+
+				most_used.appendChild(div)
+				most_used.appendChild(hr)
+				
 			})
 		})
 	})

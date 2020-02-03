@@ -66,12 +66,30 @@
       "text": "yolo1",
       "hash": "$2a$12$Y8Dq9InVS.gBP1j/BfbZk.Hh.28VTbf4zRg5tLYaBDgWqFH5bnIAO",
       "salt": 12
+    },
+    {
+      "uuid": 1580286555065,
+      "type": "MD5",
+      "text": "bonjour",
+      "hash": "f02368945726d5fc2a14eb576f7276c0"
+    },
+    {
+      "uuid": 1580300434769,
+      "type": "MD5",
+      "text": "J'encule qui",
+      "hash": "9365629396803ed690178f1a59a2f99a"
+    },
+    {
+      "uuid": 1580736207778,
+      "type": "SHA-256",
+      "text": "bonjour",
+      "hash": "2cb4b1431b84ec15d35ed83bb927e27e8967d75f4bcd9cc4b25c8d879ae23e18"
     }
   ],
   "most_used": [
     {
       "id": "MD5",
-      "count": 10
+      "count": 12
     },
     {
       "id": "Bcrypt",
@@ -79,7 +97,7 @@
     },
     {
       "id": "SHA-256",
-      "count": 0
+      "count": 1
     }
   ]
 }
