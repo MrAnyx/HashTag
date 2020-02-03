@@ -32,9 +32,9 @@
 			ipc.send("verify", data)
 			ipc.once("verify-reply", (evt, args) => {
 				if(args.result){
-                    swal(args.type, "Le hash correspond au texte", "success")
+                    swal(args.type, "It's a match", "success")
                 }else{
-                    swal(args.type, "Le hash ne correspond pas au texte", "warning")
+                    swal(args.type, "F**k, it doesn't match", "error")
                 }
 			})
 		})
