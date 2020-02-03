@@ -85,7 +85,7 @@ ipcMain.on("verify", (event, args) => {
 			break
 		case 60:
 			
-			if(args.hash === bcrypt.hashSync(args.text, args.text.split("$")[2])){
+			if(bcrypt.compareSync(args.text, args.hash)){
 				event.reply("verify-reply", {result: true, type: "Bcrypt"})
 			} else {
 				event.reply("verify-reply", {result: false, type: "Bcrypt"})
