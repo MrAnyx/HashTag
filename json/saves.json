@@ -84,6 +84,13 @@
       "type": "SHA-256",
       "text": "bonjour",
       "hash": "2cb4b1431b84ec15d35ed83bb927e27e8967d75f4bcd9cc4b25c8d879ae23e18"
+    },
+    {
+      "uuid": 1580736475312,
+      "type": "Bcrypt",
+      "text": "fjhqskdhfkjdshfkqshdfkh",
+      "hash": "$2a$12$E2y3XmpHIi3diJQn3r30CuPa/.EAjVkfturcaeoVNFNeqfISkK/gS",
+      "salt": 12
     }
   ],
   "most_used": [
@@ -93,7 +100,7 @@
     },
     {
       "id": "Bcrypt",
-      "count": 1
+      "count": 2
     },
     {
       "id": "SHA-256",

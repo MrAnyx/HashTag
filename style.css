@@ -75,7 +75,7 @@ hr {
 
 
 
-.main-link:hover, .link:hover{
+.main-link:hover, .link:hover, .verify-link:hover{
 	color: #222;
 }
 

@@ -168,12 +168,11 @@
 
 				span_method = document.createElement("span")
 				span_method.setAttribute("class", "p-2 text-muted")
-				rank = (index === 1) ? index+"er" : index+"ème"
+				rank = (index === 1) ? index+"st" : ((index === 2) ? index+"nd" : index+"rd")
 				inner_span = document.createTextNode(rank)
 				span_method.appendChild(inner_span)
 
 				index++
-				
 
 				div.appendChild(span_text)
 				div.appendChild(span_method)

@@ -43,6 +43,10 @@
 				</div>
 			</div>
 
+			<div class="p-2 font-weight-bold menu" >
+				<div class="verify-link" id="verify-link">Verify</div>
+			</div>
+
 			
 
 			<div class="p-2 font-weight-bold menu wip">
@@ -137,6 +141,17 @@
 			$("#bcrypt").click(function(){
 				$.ajax({
 					url: "bcrypt.html",
+					context: document.body,
+					success: function(response){
+						$('#content').html(response);
+						
+					}
+				});
+			});
+
+			$("#verify-link").click(function(){
+				$.ajax({
+					url: "verify.html",
 					context: document.body,
 					success: function(response){
 						$('#content').html(response);

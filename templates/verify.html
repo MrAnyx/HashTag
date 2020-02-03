@@ -1,0 +1,42 @@
+<h1 class="text-center mt-2">Verify</h1>
+
+<p class="text-justify" style="font-size: 14px;">This software allows you to verify if a hash is identical to a plain text message.</p>
+
+<hr class="mx-3" style="background-color: #aaa">
+
+<div class="form-group">
+	<label for="text-to-hash-md5">Enter the text to verify :</label>
+	<textarea class="form-control" id="text-to-hash-md5" style="min-height: 55px; max-height: 55px; height: 55px"></textarea>
+</div>
+
+<div class="form-group">
+	<label for="text-to-hash-md5">Enter the corresponding hash : </label>
+	<textarea class="form-control" id="text-to-hash-md5" style="min-height: 55px; max-height: 55px; height: 55px"></textarea>
+</div>
+
+<button class="btn btn-block font-weight-bold mb-3" id="md5-button">
+	Verify
+</button>
+
+<script>
+	
+	
+
+	document.getElementById("md5-learn").addEventListener("click", () => {
+		shell.openExternal("https://en.wikipedia.org/wiki/MD5")
+	})
+
+	if(typeof md5_button === 'undefined') {
+		let md5_button = document.getElementById("md5-button")
+		md5_button.addEventListener("click", () => {
+			console.log("click md5")
+			let data = document.getElementById("text-to-hash-md5")
+			ipc.send("hash-md5", data.value)
+			ipc.once("hash-md5-reply", (evt, args) => {
+				data.value = args
+			})
+		})
+	}
+	
+
+</script>
