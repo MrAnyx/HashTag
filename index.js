@@ -5,7 +5,7 @@ const sha256 = require('js-sha256');
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const savesFile = new FileSync('json/saves.json')
+const savesFile = new FileSync('resources/app.asar/json/saves.json')
 const saves = low(savesFile)
 
 const _ = require("underscore")
@@ -28,7 +28,7 @@ app.on('ready', () => {
 		show: false
 	})
 
-	//win.setMenu(null)
+	win.setMenu(null)
 	win.loadFile(path.join(__dirname, './templates/layout.html'))
 	win.on("ready-to-show", () => { win.show() })
 	win.on('closed', () => {
@@ -62,7 +62,7 @@ ipcMain.on("hash-sha", (event, args) => {
 ipcMain.on("get-stats", (evt, args) => {
 	let result = {
 		historic: _.first(_.sortBy(saves.get("historic").value(), "uuid").reverse(), 10),
-		most_used: saves.get("most_used").value()
+		most_used: _.sortBy(saves.get("most_used").value(), "count").reverse()
 	}
 	evt.reply("get-stats-reply", result)
 })
