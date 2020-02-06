@@ -1,3 +1,7 @@
 /node_modules
 /HashTag-win32-x64
+<<<<<<< HEAD
 /HashTag-win32-ia32
+=======
+/HashTag-win32-ia32
+>>>>>>> 637fcacd1d52fb8a05c3914e168c3c6002517b28
