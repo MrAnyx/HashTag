@@ -5,7 +5,7 @@ const sha256 = require('js-sha256');
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const savesFile = new FileSync('resources/app.asar/json/saves.json')
+const savesFile = new FileSync('../json/saves.json')
 const saves = low(savesFile)
 
 const _ = require("underscore")
@@ -34,6 +34,11 @@ app.on('ready', () => {
 	win.on('closed', () => {
 		win = null
 	})
+})
+
+
+ipcMain.on("loaded", (evt, args) => {
+	evt.reply("loaded-reply", __filename)
 })
 
 ipcMain.on("hash-md5", (event, args) => {

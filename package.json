@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . HashTag --asar --plateform=win32 --icon=src/icon.ico"
+    "build": "electron-packager . HashTag --asar --plateform=win32 --icon=src/icon.ico --overwrite --prune=true --arch=x64"
   },
   "keywords": [
     "Electron",
