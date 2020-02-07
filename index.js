@@ -5,7 +5,7 @@ const sha256 = require('js-sha256');
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const savesFile = new FileSync('../json/saves.json')
+const savesFile = new FileSync(path.join(__dirname, '../json/saves.json'))
 const saves = low(savesFile)
 
 const _ = require("underscore")

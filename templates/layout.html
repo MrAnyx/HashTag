@@ -110,10 +110,7 @@
 
 		$(document).ready(function(){
 
-			ipc.send("loaded")
-			ipc.once("loaded-reply", (evt, args) => {
-				swal("bonjour", args, "info");
-			})
+			
 
 			$.ajax({
 				url: "main.html",
