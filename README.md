@@ -1,7 +1,3 @@
 # HashTah
 
 ReadMe coming soon
-
-
-
-
