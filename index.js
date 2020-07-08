@@ -21,8 +21,6 @@ fs.mkdir(path.join(os.tmpdir(), 'HashTag', 'json'), { recursive: true }, (err) =
 	saves.defaults({ historic: [], most_used: [{id: "MD5", count: 0}, {id: "Bcrypt", count: 0}, {id: "SHA-256", count: 0}] }).write()
 }); 
 
-
-
 app.on('ready', () => {
 	win = new BrowserWindow({
 		width: 600,
