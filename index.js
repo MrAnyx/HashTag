@@ -1,21 +1,26 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const bcrypt = require("bcryptjs")
-const sha256 = require('js-sha256');
-
-
+const sha256 = require('js-sha256')
+const md5 = require("md5")
+const os = require('os')
+const fs = require('fs')
+const _ = require("underscore")
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const savesFile = new FileSync(path.join(__dirname, '../json/saves.json'))
-const saves = low(savesFile)
-
-const _ = require("underscore")
-
-const md5 = require("md5")
-
 let win
+let savesFile;
+let saves;
 
-saves.defaults({ historic: [], most_used: [{id: "MD5", count: 0}, {id: "Bcrypt", count: 0}, {id: "SHA-256", count: 0}] }).write()
+fs.mkdir(path.join(os.tmpdir(), 'HashTag', 'json'), { recursive: true }, (err) => { 
+   if (err) { 
+   	return console.error(err); 
+	}
+	savesFile = new FileSync(path.join(os.tmpdir(), 'HashTag', 'json', 'saves.json'))
+	saves = low(savesFile)
+	saves.defaults({ historic: [], most_used: [{id: "MD5", count: 0}, {id: "Bcrypt", count: 0}, {id: "SHA-256", count: 0}] }).write()
+}); 
+
 
 
 app.on('ready', () => {
@@ -36,7 +41,6 @@ app.on('ready', () => {
 		win = null
 	})
 })
-
 
 ipcMain.on("loaded", (evt, args) => {
 	evt.reply("loaded-reply", __filename)
@@ -100,18 +104,7 @@ ipcMain.on("verify", (event, args) => {
 		default:
 			event.reply("verify-reply", {result: false, type: "Error"})
 	}
-
-
-
-	// let hash = sha256(args)
-	// let count = saves.get('most_used').find({id: "SHA-256"}).value().count
-	// saves.get("most_used").find({id: "SHA-256"}).assign({ count: count + 1}).write()
-	// saves.get("historic").push({uuid: new Date().getTime(), type: "SHA-256", text: args, hash: hash}).write()
-	// event.reply("hash-sha-reply", hash)
 })
-
-
-
 
 app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') {
