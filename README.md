@@ -54,6 +54,16 @@ Today, everything is made by [MrAnyx](https://github.com/MrAnyx)
 
 If you like this project or if you want to support me, you can simply smash the like button, just to let me know.
 
+## Preview
+
+<p align="center">
+    <img width="80%" src="https://github.com/MrAnyx/HashTag/blob/master/screenshots/Capture.PNG">
+</p>
+
+<p align="center">
+    <img width="80%" src="https://github.com/MrAnyx/HashTag/blob/master/screenshots/Capture2.PNG">
+</p>
+
 ## License
 
 Currently, this project is under the [GPL-3.0](https://github.com/MrAnyx/HashTag/blob/master/LICENSE) license.
