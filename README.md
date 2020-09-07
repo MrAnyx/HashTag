@@ -2,6 +2,9 @@
     <img width="100%" src="https://github.com/MrAnyx/HashTag/blob/master/src/banner.png">
 </p>
 
+
+## Overview
+
 HashTag is a minimalist mirosoftware that hash some text. This application should mainly be used by developers who want to quickly hash something. It can also keep in memory your previous hashes in order to save some time during your development process. Currently, their are 3 algorithms : __MD5__, __SHA-256__ and __Bcrypt__.
 
 ## Installation
