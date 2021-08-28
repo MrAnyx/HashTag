@@ -11,7 +11,7 @@ HashTag is a minimalist mirosoftware that hash some text. This application shoul
 
 :warning: Currently, this software is only available for __Windows__ (Linux and MacOS are not supported)</br>
 </br>
-You can either download it from GitHub using the latest [realese](https://github.com/MrAnyx/HashTag/releases/tag/1.0), from the [Electron apps](https://www.electronjs.org/apps/hashtag) website or from the [Softpedia website](https://www.softpedia.com/get/Security/Security-Related/HashTag.shtml).
+You can either download it from GitHub using the latest [release](https://github.com/MrAnyx/HashTag/releases/tag/1.0), from the [Electron apps](https://www.electronjs.org/apps/hashtag) website or from the [Softpedia website](https://www.softpedia.com/get/Security/Security-Related/HashTag.shtml).
 <br>
 Once done, double click on `HashTag.exe` and it be ready to use.
 
